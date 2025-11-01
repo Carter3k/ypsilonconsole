@@ -28,7 +28,6 @@ Deycard = ["REMOVE SONYA KEYCARD", "REMOVE KEYCARD", "TAKE OUT KEYCARD", "take o
 Lock1 = ["Unlock 1", "UNLOCK 1", "1"]
 Scuttle = ["SCUTTLE", "Scuttle", "scuttle"]
 Life = ["Life Support", "LIFE SUPPORT", "life support", "Life support"]
-Comms = ["Comms", "COMMS", "comms"]
 Heracles = ["Heracles", "HERACLES", "heracles", "HAIL RSV THE HERACLES", "Hail RSV The Heracles", "hail rsv the heracles", "HAIL HERACLES", "hail heracles"]
 Grasshopper = ["GRASSHOPPER", "Grasshopper", "grasshopper", "HAIL IMV GRASSHOPPER", "Hail IMV Grasshopper", "hail imv grasshopper", "HAIL GRASSHOPPER", "hail grasshopper"]
 End = ["END", "END CALL", "End", "End Call", "end", "end call", "End call"]
@@ -71,7 +70,8 @@ GlobalVariables = {
 
 
 required = ("\nUse only A, B, or C\n") #Cutting down on duplication
-print ("""__   __        _ _               _____ _        _   _             
+print ("""
+__   __        _ _               _____ _        _   _             
 \ \ / /       (_) |             /  ___| |      | | (_)            
  \ V / __  ___ _| | ___  _ __   \ `--.| |_ __ _| |_ _  ___  _ __  
   \ / '_ \/ __| | |/ _ \| '_ \   `--. \ __/ _` | __| |/ _ \| '_ \ 
@@ -85,17 +85,19 @@ PROGRAM OPERATION GROUP SOFTWARE (P.O.G.S.)
 WARNING - LICENSE EXPIRED
 CONTACT SYSTEMS ADMINISTRATOR
 ----------
-""")
-#Console starts with intro"
+
+""" ) #Console starts with intro"
 def intro():
   print ("YPSILON 14 CONTROL TERMINAL")
   time.sleep(1)
-  print ("""  >DIAGNOSTICS
+  print ("""
+  >DIAGNOSTICS
   >SCHEDULE
   >CONTROLS
   >ROSTER
   >COMMS
-  """)
+  
+  """ )
   choice = input(">>> ") #Here is your first choice.
   if choice in Diagnostics:
     option_diagnostics()
@@ -116,10 +118,11 @@ def intro():
 def option_comms():
   print ("COMMS")
   time.sleep(1)
-  print ("""SCANNING FOR NEARBY SHIPS...
+  print ("""
+SCANNING FOR NEARBY SHIPS...
 > HAIL RSV THE HERACLES
 > HAIL IMV GRASSHOPPER
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Heracles:
     option_heracles()
@@ -145,8 +148,9 @@ def option_heracles():
   time.sleep(1)
   print (".")
   time.sleep(1)
-  print ("""NO ANSWER.
-  >BACK""")
+  print ("""
+NO ANSWER.
+  >BACK""" )
   choice = input(">>> ")
   if choice in Heracles:
     option_heracles()
@@ -165,8 +169,9 @@ def option_grasshopper():
   print (".")
   time.sleep(1)
   print (".")
-  print ("""ALEXA: HELLO.  HOW CAN I HELP?
-  >END CALL""")
+  print ("""
+ALEXA: HELLO.  HOW CAN I HELP?
+  >END CALL""" )
   choice = input(">>> ")
   if choice in Heracles:
     option_heracles()
@@ -180,9 +185,10 @@ def option_grasshopper():
 def option_diagnostics(): 
   print ("\nDIAGNOSTICS")
   time.sleep(1)
-  print ("""> LAYOUT
+  print (""">
+> LAYOUT
 > STATUS
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Layout:
     option_layout()
@@ -198,10 +204,11 @@ def option_diagnostics():
 def option_controls(): 
   print ("\nCONTROLS")
   time.sleep(1)
-  print ("""> AIRLOCKS
+  print ("""
+> AIRLOCKS
 > SHOWERS
 > SYSTEM [A]
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Airlocks:
     option_airlocks()
@@ -380,9 +387,10 @@ def option_system():
   else:
    print ("SYSTEM")
   time.sleep(1)
-  print ("""[ACCESS DENIED. ADMIN KEYCARD REQUIRED.]
+  print ("""
+[ACCESS DENIED. ADMIN KEYCARD REQUIRED.]
 < BACK
-  """)
+  """ )
   choice = input(">>> ")
   if choice in Keycard:
     GlobalVariables["keycard_supplied"] = True
@@ -398,10 +406,11 @@ def option_system():
 def option_system_a():
   print ("SYSTEM")
   time.sleep(1)
-  print ("""[ACCESS GRANTED. WELCOME, SONYA.]
+  print ("""
+[ACCESS GRANTED. WELCOME, SONYA.]
 > LIFE SUPPORT
 > SCUTTLE
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Life:
     option_lifesupport()
@@ -420,9 +429,10 @@ def option_system_a():
 def option_scuttle():
   print ("SCUTTLE")
   time.sleep(1)
-  print ("""[WARNING: THIS WILL INITIATE A 10-MINUTE STATION SELF-DESTRUCT SEQUENCE.
+  print ("""
+[WARNING: THIS WILL INITIATE A 10-MINUTE STATION SELF-DESTRUCT SEQUENCE.
 TYPE 'SCUTTLE' TO INITIATE. SEQUENCE IS IRREVERSIBLE AFTER 5 MINUTES.]
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Scuttle:
     time.sleep(2)
@@ -453,7 +463,7 @@ WARNING: MINESHAFT ELEVATOR LAST MAINTAINED 455 DAYS AGO
 WARNING: AIRFLOW 82%
 (SUBOPTIMAL: REPLACE FILTERS AND CHECK VENTS FOR BLOCKAGES)
 ALL SYSTEMS WITHIN ACCEPTABLE OPERATING CONDITIONS
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Back:
     option_diagnostics()
@@ -471,7 +481,8 @@ ALL SYSTEMS WITHIN ACCEPTABLE OPERATING CONDITIONS
 def option_roster():
   print ("\nROSTER")
   time.sleep(1)
-  print ("""01. VERHOEVEN, SONYA     - OVERSEER
+  print ("""
+01. VERHOEVEN, SONYA     - OVERSEER
 02. SINGH, ASHRAF        - BREAKER
 03. DE BEERS, DANA       - HEAD DRILLER
 04. HUIZINGA, JEROME     - ASST. DRILLER
@@ -481,7 +492,7 @@ def option_roster():
 08. OBOWE, MORGAN        - LOADER
 09. KENBISHI, RIE        - PUTTER
 10. VACANT
-< BACK """)
+< BACK """ )
   choice = input(">>> ")
   if choice in Back:
     intro()
@@ -504,7 +515,7 @@ def option_schedule():
 2255-04-01 15:54 - CTV HORN OV PLENTY - RESUPPLY - DOCKING BAY 2 - DOCK
 2255-03-02 08:33 - MV VAZQUEZ XV      - PICKUP   - DOCKING BAY 1 - DEPART
 2255-03-01 06:04 - MV VAZQUEZ XV      - PICKUP   - DOCKING BAY 1 - DOCK
-< BACK""")
+< BACK""" )
   choice = input(">>> ")
   if choice in Layout:
     option_run()
@@ -530,7 +541,8 @@ def option_layout():
   time.sleep(1)
   print (".")
   time.sleep(1)
-  print ("""▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  print ("""
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ▓__   _____  ___ ___ _    ___  _  _   _ _ _  ▓
 ▓\ \ / / _ \/ __|_ _| |  / _ \| \| | / | | | ▓
 ▓ \ V /|  _/\__ \| || |_| (_) | .` | | |_  _|▓
@@ -557,7 +569,7 @@ def option_layout():
 ▓  DOCK 1  ▓  DOCK 2  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ▓ HERACLES ▓ RESUPPLY ▓VERSION SOFTWARE 2.25B▓
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-  >DOWNLOAD     >BACK""")
+  >DOWNLOAD     >BACK""" )
   choice = input(">>> ")
   if choice in Download:
    print ("DOWNLOADING...")
